@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhrocha1997/com222_trabalhoFinal.git"
+  },
+  "author": "Marcelo H. Rocha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhrocha1997/com222_trabalhoFinal/issues"
+  },
+  "homepage": "https://github.com/mhrocha1997/com222_trabalhoFinal#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
