@@ -24,18 +24,22 @@ const GameSchema = new mongoose.Schema({
     },
     rate:{
         type: Number,
-        
+
     },
     imageURL:{
         type: String,
         required: true
     },
+    reviews:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review'
+    }],
     createdAt:{
         type: Date,
         default: Date.now
     }
 });
 
-const Game = mongoose.model('User', GameSchema);
+const Game = mongoose.model('Game', GameSchema);
 
 module.exports = Game;
