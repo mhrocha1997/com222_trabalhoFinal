@@ -19,6 +19,7 @@ router.get('/:gameId',async(req,res)=>{
 });
 
 router.post('/', upload.array('imageUrl'), async (req,res)=>{
+    
     try{
         
         const {
@@ -29,11 +30,7 @@ router.post('/', upload.array('imageUrl'), async (req,res)=>{
             genre,
         } = req.body;
 
-        const reqImage = req.files;
-
-        const imageUrl = reqImage.map(image=>{
-            return {path: image.filename}
-        });
+        const imageUrl = req.files[0].path;
         const data = {
             name,
             console,
@@ -46,7 +43,7 @@ router.post('/', upload.array('imageUrl'), async (req,res)=>{
 
         return res.send({game});
     }catch(err){
-        comsole.log(err);
+        console.log(err);
         return res.status(400).send({error: "error creating new project"})
     }
 });
@@ -59,3 +56,7 @@ router.delete('/',(req,res)=>{
     res.send({ok: true,user: req.userId});
 });
 module.exports = app => app.use('/games', router);
+
+function newFunction(console) {
+    console.log('req');
+}

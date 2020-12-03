@@ -26,7 +26,7 @@ const GameSchema = new mongoose.Schema({
         type: Number,
 
     },
-    imageURL:{
+    imageUrl:{
         type: String,
         required: true
     },
