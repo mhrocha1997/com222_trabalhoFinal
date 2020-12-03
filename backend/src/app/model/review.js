@@ -1,23 +1,32 @@
-const mongoose = require('mongoose');
+const mongoose = require('../../database');
+
 
 const ReviewSchema = new mongoose.Schema({
-    rank:{
-        type: Number,
-        required: true
-    },
     text:{
         type: String,
         required: true
     },
-    game:{
+    rate:{
         type: String,
+        unique: true,
+        lowercase: true,
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
-    email:{
-        type: String,
+    game:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Game',
         required: true
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now
     }
 });
+
 
 const Review = mongoose.model('Review', ReviewSchema);
 
