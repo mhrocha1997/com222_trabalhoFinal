@@ -24,7 +24,7 @@ const GameSchema = new mongoose.Schema({
     },
     rate:{
         type: Number,
-
+        required: false,
     },
     imageUrl:{
         type: String,

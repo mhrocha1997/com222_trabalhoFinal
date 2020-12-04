@@ -19,6 +19,7 @@ module.exports={
                 summary,
                 developer,
                 genre,
+                rate
             } = req.body;
     
             const imageUrl = req.files[0].path;
@@ -29,7 +30,8 @@ module.exports={
                 summary,
                 developer,
                 genre,
-                imageUrl
+                imageUrl,
+                rate
             }
             const game = await Game.create(data);
     
@@ -47,6 +49,18 @@ module.exports={
             return res.send();
         }catch(err){
             return res.status(400).send({error: 'Error deleting Project'});
+        }
+    },
+    async topRated(req,res){
+        try{
+            const games = await Game.find().sort({rate: -1});
+            let bestGames = [];
+            for(let i = 0; i<3; i++){
+                bestGames.push(games[i]);
+            }
+            return res.send(bestGames);
+        }catch(err){
+
         }
     }
 }
