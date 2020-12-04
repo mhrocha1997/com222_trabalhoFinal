@@ -1,5 +1,4 @@
-const mongoose = require('../../database');
-
+const mongoose = require('../../database/connection');
 
 const ReviewSchema = new mongoose.Schema({
     text:{

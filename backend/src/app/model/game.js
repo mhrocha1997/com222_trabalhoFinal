@@ -1,4 +1,4 @@
-const mongoose = require('../../database');
+const mongoose = require('../../database/connection');
 const bcrypt = require('bcryptjs');
 
 const GameSchema = new mongoose.Schema({
