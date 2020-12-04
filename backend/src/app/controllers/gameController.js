@@ -19,7 +19,6 @@ module.exports={
                 summary,
                 developer,
                 genre,
-                rate
             } = req.body;
     
             const imageUrl = req.files[0].path;
@@ -31,7 +30,6 @@ module.exports={
                 developer,
                 genre,
                 imageUrl,
-                rate
             }
             const game = await Game.create(data);
     
