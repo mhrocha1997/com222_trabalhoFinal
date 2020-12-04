@@ -1,13 +1,4 @@
-const express = require('express');
-const authMiddleware = require('../middlewares/auth');
-const multer = require('multer');
-const uploadConfig = require('../config/upload');
-
 const Game = require('../model/game');
-const { create } = require('../model/game');
-
-const router = express.Router();
-const upload = multer(uploadConfig);
 
 module.exports={
     async index(req,res){
