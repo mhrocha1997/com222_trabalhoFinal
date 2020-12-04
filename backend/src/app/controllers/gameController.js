@@ -22,6 +22,7 @@ module.exports={
             } = req.body;
     
             const imageUrl = req.files[0].path;
+
             const data = {
                 name,
                 console,
@@ -38,6 +39,16 @@ module.exports={
             return res.status(400).send({error: "error creating new project"})
         }
     },
+
+    async delete(req,res){
+        try{
+            await Game.findByIdAndRemove(req.params.id);
+
+            return res.send();
+        }catch(err){
+            return res.status(400).send({error: 'Error deleting Project'});
+        }
+    }
 }
 
 

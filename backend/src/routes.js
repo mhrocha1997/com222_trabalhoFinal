@@ -18,6 +18,7 @@ routes.post('/authenticate',authController.authenticate);
 
 routes.get('/games',auth,gameController.index);
 routes.post('/games/create',auth, upload.array('imageUrl'),gameController.create);
+routes.delete('/games/delete/:id',auth,gameController.delete);
 
 routes.get('/reviews/:name',auth,reviewController.index);
 routes.post('/reviews/create',auth,reviewController.create);
