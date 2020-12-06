@@ -1,3 +1,4 @@
+const { search } = require('../..');
 const Game = require('../model/game');
 
 module.exports={
@@ -12,7 +13,6 @@ module.exports={
     },
     async create(req,res){
         try{
-        
             const {
                 name,
                 console,
@@ -20,7 +20,8 @@ module.exports={
                 developer,
                 genre,
             } = req.body;
-    
+            const reviews = [];
+            const reviewsSize = 0
             const imageUrl = req.files[0].path;
 
             const data = {
@@ -30,6 +31,8 @@ module.exports={
                 developer,
                 genre,
                 imageUrl,
+                reviews,
+                reviewsSize
             }
             const game = await Game.create(data);
     
@@ -51,14 +54,41 @@ module.exports={
     },
     async topRated(req,res){
         try{
+            const { conso } = req.query;
             const games = await Game.find().sort({rate: -1});
             let bestGames = [];
-            for(let i = 0; i<3; i++){
-                bestGames.push(games[i]);
-            }
-            return res.send(bestGames);
-        }catch(err){
+            let i = 0;
+            let k = 0;
 
+            while(k < 3 && i < games.length){
+                console.log(games[i].console);
+                console.log(conso);
+                if(conso == games[i].console){
+                    k++;
+                    bestGames.push(games[i]);
+                }
+                i++;
+            }
+
+            return res.json(bestGames);
+        }catch(err){
+            return res.status(400).send({error: err});
+        }
+    },
+
+    async search(req, res){
+        try{
+            const { searchObject, conso } = req.body;
+            console.log(conso, searchObject);
+            let result = [];
+            result.push(await Game.find({ name: searchObject, console: conso }));
+            result.push(await Game.find({ console:conso, developer: { $regex: searchObject }}));
+            result.push(await Game.find({ console:conso, genre:searchObject }));
+            console.log(result);
+            return res.json(result)
+        }catch(err){
+            console.log(err);
+            return res.status(400).send({error: 'Search Error'});
         }
     }
 }

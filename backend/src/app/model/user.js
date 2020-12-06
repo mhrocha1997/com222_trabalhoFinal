@@ -17,8 +17,7 @@ const UserSchema = new mongoose.Schema({
         select: false
     },
     reviews:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Review'
+        type: String
     }],
     createdAt:{
         type: Date,

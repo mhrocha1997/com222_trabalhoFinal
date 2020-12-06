@@ -6,18 +6,15 @@ const ReviewSchema = new mongoose.Schema({
         required: true
     },
     rate:{
-        type: String,
-        unique: true,
-        lowercase: true,
-    },
-    user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        type: Number,
         required: true
     },
-    game:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Game',
+    email:{
+        type: String,
+        required: true
+    },
+    name:{
+        type: String,
         required: true
     },
     createdAt:{
@@ -25,7 +22,6 @@ const ReviewSchema = new mongoose.Schema({
         default: Date.now
     }
 });
-
 
 const Review = mongoose.model('Review', ReviewSchema);
 
