@@ -12,7 +12,6 @@ module.exports={
     },
     async create(req,res){
         try{
-        
             const {
                 name,
                 console,
@@ -20,7 +19,8 @@ module.exports={
                 developer,
                 genre,
             } = req.body;
-    
+            const reviews = [];
+            const reviewsSize = 0
             const imageUrl = req.files[0].path;
 
             const data = {
@@ -30,6 +30,8 @@ module.exports={
                 developer,
                 genre,
                 imageUrl,
+                reviews,
+                reviewsSize
             }
             const game = await Game.create(data);
     

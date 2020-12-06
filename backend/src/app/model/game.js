@@ -26,13 +26,18 @@ const GameSchema = new mongoose.Schema({
         type: Number,
         required: false,
     },
+    rateAux:{
+        type: Number
+    },
+    reviewsSize:{
+        type: Number
+    },
     imageUrl:{
         type: String,
         required: true
     },
     reviews:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Review'
+        type: String
     }],
     createdAt:{
         type: Date,
