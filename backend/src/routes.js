@@ -17,10 +17,11 @@ routes.post('/authenticate',authController.authenticate);
 
 routes.get('/games',gameController.index);
 routes.get('/games/topRated',gameController.topRated);
-routes.post('/games/create',auth, upload.array('imageUrl'),gameController.create);
-routes.delete('/games/delete/:id',auth,gameController.delete);
+routes.post('/games/create', auth, upload.array('imageUrl'),gameController.create);
+routes.post('/games/search', gameController.search);
+routes.delete('/games/delete/:id', auth,gameController.delete);
 
 routes.get('/reviews/:name',reviewController.index);
-routes.post('/reviews/create', reviewController.create);
+routes.post('/reviews/create', auth, reviewController.create);
 
 module.exports = routes;
