@@ -22,6 +22,6 @@ routes.post('/games/search', gameController.search);
 routes.delete('/games/delete/:id', auth,gameController.delete);
 
 routes.get('/reviews/:name',reviewController.index);
-routes.post('/reviews/create', auth, reviewController.create);
+routes.post('/reviews/create', reviewController.create);
 
 module.exports = routes;

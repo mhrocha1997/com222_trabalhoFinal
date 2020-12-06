@@ -5,7 +5,7 @@ module.exports={
     async index(req,res){
         try{
             const games = await Game.find();
-    
+        
             return res.send(({games}));
         }catch(err){
             return res.status(400).send({error: 'Error loading games'});
@@ -19,10 +19,11 @@ module.exports={
                 summary,
                 developer,
                 genre,
+                imageUrl
             } = req.body;
             const reviews = [];
             const reviewsSize = 0
-            const imageUrl = req.files[0].path;
+            const rate = 0;
 
             const data = {
                 name,
@@ -31,6 +32,7 @@ module.exports={
                 developer,
                 genre,
                 imageUrl,
+                rate,
                 reviews,
                 reviewsSize
             }

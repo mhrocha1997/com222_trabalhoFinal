@@ -5,8 +5,11 @@ const User = require('../model/user');
 module.exports = {
     async index(req,res){
         try{
-            let reviews = await Review.find({ game: req.params.name});
-            return res.json(reviews);
+            const {name} = req.params;
+            console.log(name);
+            let reviews = await Review.find({ name });
+            let game = await Game.findOne({ name })
+            return res.json([game, reviews]);
         }catch(err){
             return res.status(400).send({error: err});
         }
