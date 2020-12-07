@@ -5,8 +5,7 @@ const User = require('../model/user');
 module.exports = {
     async index(req,res){
         try{
-            const {name} = req.params;
-            console.log(name);
+            const {name} = req.query;
             let reviews = await Review.find({ name });
             let game = await Game.findOne({ name })
             return res.json([game, reviews]);
@@ -26,12 +25,12 @@ module.exports = {
 
             let user = await User.findOne({ email });
             if(!user){
-                return res.status(402).send({error: 'User not found'});
+                return res.status(400).send({error: 'User not found'});
             }
 
             let game = await Game.findOne({ name });
             if(!game){
-                return res.status(401).send({error: 'Game not found'});
+                return res.status(400).send({error: 'Game not found'});
             }
 
             const review = await Review.create( {rate, text, email, name} );
@@ -50,7 +49,6 @@ module.exports = {
 
             return res.json({ message:"Review cadastrado." });
         }catch(err){
-            console.log(err);
             return res.status(400).send({error: err});
         }
     },
