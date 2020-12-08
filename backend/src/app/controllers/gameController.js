@@ -11,19 +11,11 @@ module.exports={
         }
     },
     async create(req,res){
+        let { name, console, summary, developer, genre, imageUrl } = req.body;
         try{
-            const {
-                name,
-                console,
-                summary,
-                developer,
-                genre,
-                imageUrl
-            } = req.body;
             const reviews = [];
-            const reviewsSize = 0
+            const reviewsSize = 0;
             const rate = 0;
-
             const data = {
                 name,
                 console,
@@ -34,10 +26,10 @@ module.exports={
                 rate,
                 reviews,
                 reviewsSize
-            }
+            };
             const game = await Game.create(data);
     
-            return res.send({game});
+            return res.json(game);
         }catch(err){
             return res.status(400).send({error: "error creating new project"})
         }
