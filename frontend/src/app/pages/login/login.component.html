@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="column">
+    <h2>Já tenho conta</h2>
+    <img
+      src="https://i.pinimg.com/originals/56/79/a5/5679a551fa9155ab2513d0c1e0e2bb0f.gif"
+      width="100%"
+      alt=""
+    />
+
+    <input
+      (keyup)="getEmail($event)"
+      type="email"
+      placeholder="email@email.com"
+      autocomplete="email"
+    />
+    <input
+      (keyup)="getPassword($event)"
+      type="password"
+      placeholder="Digite sua senha"
+    />
+    <button (click)="loginUser()">Entrar</button>
+  </div>
+  <div class="division"></div>
+  <div class="column">
+    <h2>Criar uma conta</h2>
+    <img
+      src="
+https://64.media.tumblr.com/80d3210260eb16c5cfe6b288d83ae095/tumblr_p03hmpcgrw1qlh9h7o1_500.gifv
+    
+    "
+      width="100%"
+      alt=""
+    />
+    <input
+      (keyup)="getUserName($event)"
+      type="text"
+      placeholder="Digite um nome de usuário"
+    />
+    <input
+      type="email"
+      (keyup)="getEmail($event)"
+      placeholder="Digite seu melhor email"
+    />
+    <input
+      type="password"
+      (keyup)="getPassword($event)"
+      placeholder="Digite uma boa senha"
+    />
+    <button (click)="createUser()">Criar a conta</button>
+  </div>
+</div>

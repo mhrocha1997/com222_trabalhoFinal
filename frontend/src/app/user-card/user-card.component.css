@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+}
+
+.image-console {
+  display: flex;
+  transition: 0.2s;
+}
+
+h2 {
+  padding-left: 20px;
+}
+
+.description {
+  text-align: justify;
+  padding: 20px;
+}
+
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper:hover {
+  background-color: #000;
+  color: #fff;
+}
+.rate {
+  font-size: 20px;
+  font-family: "Press Start 2P", cursive;
+  padding: 20px;
+}

@@ -1,7 +1,6 @@
 const express = require('express');
 const multer = require('multer');
 const uploadConfig = require('./app/config/upload');
-
 const authController = require('./app/controllers/authController');
 const gameController = require('./app/controllers/gameController');
 const reviewController = require('./app/controllers/reviewController');

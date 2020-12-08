@@ -1,0 +1,16 @@
+<div class="container">
+  <app-search></app-search>
+
+  <h2 class="title">{{ platform }}</h2>
+
+  <app-game-card
+    *ngFor="let item of topGames; let i = index"
+    [image]="item.imageUrl"
+    [name]="item.name"
+    [description]="item.summary"
+    [rate]="item.rate"
+    [details]="'lol'"
+  ></app-game-card>
+</div>
+
+<!-- <app-footer></app-footer> -->
