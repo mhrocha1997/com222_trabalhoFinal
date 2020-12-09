@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  max-width: 500px;
+  width: 500px;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px;
+  width: 150px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  margin-left: 20px;
+}

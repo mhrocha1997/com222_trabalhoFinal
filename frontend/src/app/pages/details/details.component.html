@@ -1,0 +1,48 @@
+<div class="container">
+  <app-slider
+    [image]="image"
+    [description]="description"
+    [name]="name"
+  ></app-slider>
+
+  <div *ngIf="enable">
+    <div class="avalieble">
+      <h2 class="title">Avaliações: {{ rate }}/10</h2>
+      <button (click)="createReview()">Avaliar</button>
+    </div>
+
+    <div class="container-text">
+      <textarea
+        (keyup)="getAvaliable($event)"
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        class="textarea"
+      ></textarea>
+      <div class="rate">
+        <h3>Nota de 0 a 10:</h3>
+        <input
+          (keyup)="getRate($event)"
+          id="number"
+          type="number"
+          value=""
+          max="10"
+          min="0"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <app-user-card
+      *ngFor="let item of allReviews; let i = index"
+      [image]="
+        'https://blog.br.playstation.com/tachyon/sites/4/2020/10/19_3_thumb.jpg'
+      "
+      [name]="item.username"
+      [avaliable]="item.text"
+      [rate]="item.rate"
+    ></app-user-card>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  font-family: "Press Start 2P", cursive;
+  overflow-x: hidden;
+  padding: 10px;
+
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 0px 50px;
+}
+.division {
+  width: 1px;
+  height: 500px;
+  background-color: black;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 20px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  transition: 0.4s;
+}
+
+button:hover {
+  background-color: #fff;
+  color: black;
+  border: 1px solid #000;
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .column {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .division {
+    display: none;
+  }
+}

@@ -23,8 +23,7 @@ const GameSchema = new mongoose.Schema({
         required: true
     },
     rate:{
-        type: Number,
-        required: false,
+        type: Number
     },
     rateAux:{
         type: Number
@@ -36,9 +35,6 @@ const GameSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    reviews:[{
-        type: String
-    }],
     createdAt:{
         type: Date,
         default: Date.now
