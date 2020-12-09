@@ -3,6 +3,8 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AllGamesService } from '../services/all-games.service';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 /**
  * @title Filter autocomplete
  */
