@@ -1,20 +1,18 @@
-<nav class="header">
+<nav class="header bg1">
   <a href="/">
     <div class="logo">
-      <img
-        src="https://img.flaticon.com/icons/png/512/181/181515.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF"
-        height="50"
-        alt=""
-      />
+      <img src="../../assets/logo.png" alt="" />
       <span>Istim</span>
     </div>
   </a>
 
   <a href="/create" class="btn" *ngIf="showButton"> Cadastrar jogo </a>
-  <div class="link" *ngIf="hideButtonLogin"><a href="/login">Entrar</a></div>
+  <div class="link" *ngIf="hideButtonLogin" class="login">
+    <a href="/login"> <img src="../../../assets/enter.png" alt="" />Entrar</a>
+  </div>
   <div class="link" *ngIf="showButton">
-    <button *ngIf="showButton" (click)="exit()">
-      <a href="/">Sair</a>
+    <button  *ngIf="showButton" (click)="exit()">
+      <a class="btn" href="/">Sair</a>
     </button>
   </div>
 </nav>
