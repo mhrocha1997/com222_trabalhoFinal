@@ -85,9 +85,24 @@ module.exports={
         try{
             const { conso, searchObject } = req.body;
             let result = [];
-            result = result.concat(result, await Game.find({ name: searchObject, console: conso }));
-            result = result.concat(result, await Game.find({ console: conso, developer: searchObject }));
-            result = result.concat(result, await Game.find({ console: conso, genre: searchObject }));
+            let list = new Set();
+            let aux = await Game.find({ name: { $regex: searchObject }, console: conso });
+            for(let i = 0; i < aux.length; i++){
+                list.add(aux[i]);
+            }
+            aux = await Game.find({ console: conso, developer: { $regex: searchObject }});
+            for(let i = 0; i < aux.length; i++){
+                list.add(aux[i]);
+            }
+            aux = await Game.find({ console: conso, genre: { $regex: searchObject }});
+            for(let i = 0; i < aux.length; i++){
+                list.add(aux[i]);
+            }
+
+            for(let i of list){
+                result.push(i);
+            }
+            
             return res.json(result);
         }catch(err){
             return res.status(400).send({error: 'Search Error'});
