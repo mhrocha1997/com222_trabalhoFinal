@@ -100,7 +100,6 @@ module.exports={
             }
 
             for(let i of list){
-                console.log(i);
                 result.push(i);
             }
             
