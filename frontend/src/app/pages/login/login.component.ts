@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
+  emailLogin: string;
+  passLogin: string;
+
   ngOnInit(): void {}
 
   createUser() {
@@ -36,26 +39,32 @@ export class LoginComponent implements OnInit {
   }
 
   async loginUser() {
-    if (!this.email || !this.password) {
+    if (!this.emailLogin || !this.passLogin) {
       alert('Por favor, preencha todos os dois campos para continuar.');
       return;
     }
 
     let user = {
-      email: this.email,
-      password: this.password,
+      email: this.emailLogin,
+      password: this.passLogin,
     };
 
-    this.user.loginUser(user).subscribe(async (user: any) => {
-      console.log(user.user.name);
-      if (user) {
-        await localStorage.setItem('token', user.token);
-        await localStorage.setItem('user', user.user.email);
-        window.location.href = 'http://localhost:4200/';
-      }
-    });
+    try {
+      this.user.loginUser(user).subscribe(async (user: any) => {
+        console.log(user.user.name);
+        if (user) {
+          await localStorage.setItem('token', user.token);
+          await localStorage.setItem('user', user.user.email);
+          window.location.href = 'http://localhost:4200/';
+        } else {
+          alert('Ops! Algo deu errado! Confira seus dados e tente novamente.');
+        }
+      });
+    } catch (error) {
+      alert('Ops! Alguma coisa de errada aconteceu');
+    }
   }
-  //Login
+  //Registrar
   getEmail(event: any) {
     this.email = event.target.value;
     console.log(this.email);
@@ -64,6 +73,10 @@ export class LoginComponent implements OnInit {
   getPassword(event: any) {
     this.password = event.target.value;
     console.log(this.password);
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      document.getElementById('createAcc').click();
+    }
   }
 
   getUserName(event: any) {
@@ -71,5 +84,17 @@ export class LoginComponent implements OnInit {
     console.log(this.name);
   }
 
-  //Registrar
+  //Login
+  getEmailLogin(event: any) {
+    this.emailLogin = event.target.value;
+  }
+
+  getPasswordLogin(event: any) {
+    this.passLogin = event.target.value;
+
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      document.getElementById('confirmLogin').click();
+    }
+  }
 }

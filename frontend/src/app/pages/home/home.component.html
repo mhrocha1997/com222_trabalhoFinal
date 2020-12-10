@@ -1,10 +1,4 @@
 <div class="container">
-  <app-slider
-    *ngFor="let item of slides; let i = index"
-    [image]="item.src"
-    [description]="item.description"
-    [name]="item.name"
-  ></app-slider>
 
   <h2 class="title">Consoles</h2>
 
@@ -38,5 +32,13 @@
       [routerLink]="'games/Switch'"
     ></app-card>
   </div>
+  <app-slider
+    *ngFor="let item of slides; let i = index"
+    [image]="item.src"
+    [description]="item.description"
+    [name]="item.name"
+  ></app-slider>
+
+ 
   <app-footer></app-footer>
 </div>

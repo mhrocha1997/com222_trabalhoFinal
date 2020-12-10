@@ -2,20 +2,15 @@
   <form class="example-form">
     <input
       type="text"
-      placeholder="Pick one"
-      aria-label="Number"
+      placeholder="Buscar por nome do jogo, desenvolvedor ou gênero"
       matInput
-      [matAutocomplete]="auto"
-      (keyup)="search($event)"
+      (keyup)="filter($event)"
     />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of filteredOptions | async"
-        [value]="option"
-      >
+    <select name="" #searchAuto (change)="getAutoComplete(searchAuto.value)">
+      <option value="{{option}}" *ngFor="let option of filteredOptions">
         {{ option }}
-      </mat-option>
-    </mat-autocomplete>
+      </option>
+    </select>
   </form>
-  <button>Buscar</button>
+  <button (click)="autoComplete()">Buscar</button>
 </div>

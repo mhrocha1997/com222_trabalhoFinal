@@ -46,6 +46,20 @@ export class CreateGameComponent implements OnInit {
   async createGame() {
     let token = await localStorage.getItem('token');
 
+    if (
+      !this.name ||
+      !this.summary ||
+      !this.developer ||
+      !this.genre ||
+      !this.imageURL ||
+      !this.console
+    ) {
+      alert(
+        'Ops! Para cadastrar um jogo é necessário informar todos os campos!'
+      );
+      return;
+    }
+
     let data = {
       name: this.name,
       summary: this.summary,
@@ -54,6 +68,7 @@ export class CreateGameComponent implements OnInit {
       genre: this.genre,
       console: this.console,
     };
+
     this.games.createGame(token, data).subscribe((game: any) => {
       console.log(game);
     });

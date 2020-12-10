@@ -86,7 +86,7 @@ export class AllGamesService {
   }
 
   search(conso): Observable<any[]> {
-    console.log(this.url + '/games/complete');
+    // console.log(this.url + '/games/complete');
     return this.httpClient
       .post<any[]>(
         this.url + '/games/complete',
@@ -97,11 +97,27 @@ export class AllGamesService {
       )
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  searchAutoComplete(conso, word): Observable<any[]> {
+    console.log(this.url + '/games/search', word, conso);
+    console.log('autocomplete');
+    return this.httpClient
+      .post<any[]>(
+        this.url + '/games/search',
+        JSON.stringify({
+          conso: conso,
+          searchObject: word,
+        }),
+        this.httpOptions
+      )
+      .pipe(retry(2), catchError(this.handleError));
+  }
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
+      alert('Algo deu errado!');
       errorMessage =
         `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
     }

@@ -79,8 +79,10 @@ export class DetailsComponent implements OnInit {
       if (review) {
         this.allReviews = [];
         alert(review.message);
-
-        this.getReview();
+        // document.getElementsById('text').value = '';
+        // document.getElementById('number').value = '';
+        window.location.reload()
+        // this.getReview();
       }
     });
   }

@@ -45,8 +45,10 @@ export class UserService {
     if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
+      alert('Ops! Algo deu errado!');
       errorMessage =
         `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
+      return;
     }
     console.log(errorMessage);
     return throwError(errorMessage);

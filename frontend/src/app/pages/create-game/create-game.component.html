@@ -5,11 +5,17 @@
     alt=""
   />
   <h2 class="title">Criar um novo jogo</h2>
-  <input (keyup)="getName($event)" type="text" placeholder="Nome do jogo" />
+  <input
+    (keyup)="getName($event)"
+    type="text"
+    placeholder="Nome do jogo"
+    required
+  />
   <input
     (keyup)="getDeveloper($event)"
     type="text"
     placeholder="Empresa desenvolvedora"
+    required
   />
   <select
     name="console"
@@ -19,8 +25,8 @@
   >
     >
     <option value="Selecionar">Selecionar console</option>
-    <option value="PlayStation">PlayStation</option>
-    <option value="XBox">X Box</option>
+    <option value="Playstation">PlayStation</option>
+    <option value="Xbox">X Box</option>
     <option value="Pc">PC</option>
     <option value="Switch">Switch</option>
   </select>
@@ -85,7 +91,12 @@
     placeholder="
   Descrição do jogo"
   ></textarea>
-  <input (keyup)="getImage($event)" type="text" placeholder="URL da imagem" />
+  <input
+    (keyup)="getImage($event)"
+    required
+    type="text"
+    placeholder="URL da imagem"
+  />
 
   <button (click)="createGame()">Cadastrar</button>
 </div>

@@ -13,11 +13,13 @@
 
     <div class="container-text">
       <textarea
+        #textarea
         (keyup)="getAvaliable($event)"
         name=""
-        id=""
+        id="text"
         cols="30"
         rows="10"
+        type='reset'
         class="textarea"
       ></textarea>
       <div class="rate">
@@ -29,6 +31,7 @@
           value=""
           max="10"
           min="0"
+          class="input"
         />
       </div>
     </div>

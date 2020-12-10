@@ -8,17 +8,18 @@
     />
 
     <input
-      (keyup)="getEmail($event)"
+      (keyup)="getEmailLogin($event)"
       type="email"
       placeholder="email@email.com"
       autocomplete="email"
     />
     <input
-      (keyup)="getPassword($event)"
+    id="password"
+      (keyup)="getPasswordLogin($event)"
       type="password"
       placeholder="Digite sua senha"
     />
-    <button (click)="loginUser()">Entrar</button>
+    <button id="confirmLogin" (click)="loginUser()">Entrar</button>
   </div>
   <div class="division"></div>
   <div class="column">
@@ -46,6 +47,6 @@ https://64.media.tumblr.com/80d3210260eb16c5cfe6b288d83ae095/tumblr_p03hmpcgrw1q
       (keyup)="getPassword($event)"
       placeholder="Digite uma boa senha"
     />
-    <button (click)="createUser()">Criar a conta</button>
+    <button  id="createAcc" (click)="createUser()">Criar a conta</button>
   </div>
 </div>
