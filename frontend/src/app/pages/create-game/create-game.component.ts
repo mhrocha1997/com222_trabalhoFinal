@@ -71,6 +71,10 @@ export class CreateGameComponent implements OnInit {
 
     this.games.createGame(token, data).subscribe((game: any) => {
       console.log(game);
+      if (game) {
+        alert('Cadastro realizado com sucesso!');
+        window.location.reload();
+      }
     });
   }
 }
